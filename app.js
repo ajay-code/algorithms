@@ -1,9 +1,7 @@
 import { linearSearch } from "./linearSearch";
 
-let list = [2, 4, 3, 5, 123, 34, 3, 4, 34];
+let list = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 
-for (let [i, value] of list.entries()) {
-  console.log(i, value);
-}
-
-linearSearch();
+console.log(linearSearch(list, 20));

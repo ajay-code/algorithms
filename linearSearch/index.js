@@ -1,3 +1,7 @@
 export function linearSearch(arr, item) {
-  console.log("leaner search");
+  for (let [index, value] of arr.entries()) {
+    if (item === value) return index;
+  }
+
+  return -1;
 }
