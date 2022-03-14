@@ -20,6 +20,7 @@ export function recursiveBinarySearch(list, target, first, last) {
   if (first > last) return null;
 
   let midpoint = Math.floor((first + last) / 2);
+
   if (list[midpoint] === target) return midpoint;
   else if (list[midpoint] < target) first = midpoint + 1;
   else last = midpoint - 1;
