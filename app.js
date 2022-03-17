@@ -1,6 +1,11 @@
-import { mergeSort } from "./mergeSort";
+import LinkedList from "./linkedList";
+import { linkedListMergeSort } from "./mergeSort";
 
-let list = [34, 53, 6, 23, 16, 34, 3];
+let list = new LinkedList();
 
-console.log((list));
-console.log((mergeSort(list)));
+list.add(10).add(23).add(12).add(30).add(21);
+list.print();
+
+let sortedList = linkedListMergeSort(list);
+
+sortedList.print();

@@ -33,15 +33,55 @@ export default class LinkedList {
   }
 
   /**
+   *
+   * @param {number} index
+   */
+  nodeAtIndex(index) {
+    let position = 0;
+    let current = this.head;
+
+    while (position < index) {
+      current = current.nextNode;
+      position += 1;
+    }
+
+    return current;
+  }
+
+  /**
    * Adds new node with data at head of list
    * Takes O(1) time
    *
    * @param {*} data
+   * @returns {this} self
    */
   add(data) {
     let newNode = new Node(data);
     newNode.nextNode = this.head;
     this.head = newNode;
+    return this;
+  }
+
+  /**
+   * Adds new node with data at head of list
+   * Takes O(1) time
+   *
+   * @param {*} data
+   * @returns {this} self
+   */
+  addAtEnd(data) {
+    this;
+    let newNode = new Node(data);
+    let current = this.head;
+    if (current == null) {
+      this.head = newNode;
+      return this;
+    }
+    while (current.nextNode) {
+      current = current.nextNode;
+    }
+    current.nextNode = newNode;
+    return this;
   }
 
   /**
@@ -69,6 +109,7 @@ export default class LinkedList {
    *
    * @param {Node} data
    * @param {number} index
+   * @return {this} self
    */
   insert(data, index = 0) {
     if (index == 0) {
@@ -90,6 +131,8 @@ export default class LinkedList {
       prevNode.nextNode = newNode;
       newNode.nextNode = nextNode;
     }
+
+    return this;
   }
 
   /**
