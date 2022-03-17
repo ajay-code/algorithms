@@ -1,6 +1,6 @@
-import mergeSort, { verifySorted } from "./mergeSort";
+import { mergeSort } from "./mergeSort";
 
 let list = [34, 53, 6, 23, 16, 34, 3];
 
-console.log(verifySorted(list));
-console.log(verifySorted(mergeSort(list)));
+console.log((list));
+console.log((mergeSort(list)));
