@@ -1,11 +1,8 @@
-import LinkedList from "./linkedList";
-import { linkedListMergeSort } from "./mergeSort";
+import { loadNumbers } from "./helpers";
+import { quickSort } from "./sort";
 
-let list = new LinkedList();
+let cargs = process.argv.slice(2);
 
-list.add(10).add(23).add(12).add(30).add(21);
-list.print();
+let numbers = await loadNumbers(cargs[0] ?? "data/numbers/5.txt");
 
-let sortedList = linkedListMergeSort(list);
-
-sortedList.print();
+console.log(quickSort(numbers));
