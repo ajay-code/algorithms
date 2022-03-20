@@ -1,25 +1,10 @@
-// import { loadStrings } from "./helpers";
-// import { linearSearch } from "./search";
+import { loadStrings } from "./helpers";
+import binarySearch from "./search/binarySearch";
+let cargs = process.argv.slice(2);
 
-import { saveRandomNamesToFile } from "./helpers/saveToFile";
+let names = await loadStrings(cargs[0] ?? "data/names/sorted.txt");
 
-// let cargs = process.argv.slice(2);
+let item = "Jeannette Berge";
+const itemIndex = binarySearch(names, item);
 
-// let names = await loadStrings(cargs[0] ?? "data/names/unsorted.txt");
-
-// let searchNames = [
-//   "Dawn Bruen V",
-//   "Mary Renner",
-//   "Melody Grimes",
-//   "Ellen Kohler",
-//   "Lauren Rutherford III",
-//   "Lisa Smith",
-//   "Ms. Andy Gulgowski",
-// ];
-
-// for (let i = 0; i < searchNames.length; i++) {
-//   let itemIndex = linearSearch(names, searchNames[i]);
-//   console.log(itemIndex, searchNames[i]);
-// }
-
-saveRandomNamesToFile(1000000);
+console.log(itemIndex, item);
