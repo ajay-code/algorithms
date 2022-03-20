@@ -1,3 +1,5 @@
+import { getRandomNumber } from "../helpers";
+
 export default function quickSort(list) {
   if (list.length <= 1) return list;
 
@@ -7,13 +9,31 @@ export default function quickSort(list) {
 }
 
 function devideWithPivot(list) {
-  let pivot = list[0];
+  let pivotIndex = selectRandPivot(list);
   let lessThanList = [],
     greaterThanList = [];
 
-  for (let i = 1; i < list.length; i++) {
-    if (list[i] <= pivot) lessThanList.push(list[i]);
+  for (let i = 0; i < list.length; i++) {
+    if (i === pivotIndex) continue;
+    else if (list[i] <= list[pivotIndex]) lessThanList.push(list[i]);
     else greaterThanList.push(list[i]);
   }
-  return { lessThanList, pivot, greaterThanList };
+
+  return { lessThanList, pivot: list[pivotIndex], greaterThanList };
+}
+
+/**
+ * Select random index as pivot
+ * and return that index
+ *
+ * @param {Array} list
+ * @returns {number} index
+ */
+function selectRandPivot(list) {
+  let min = 0,
+    max = list.length - 1;
+
+  let index = getRandomNumber(min, max);
+
+  return index;
 }
